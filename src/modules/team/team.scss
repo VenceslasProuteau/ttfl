@@ -1,0 +1,26 @@
+@import 'sass/_constants.scss';
+
+.team {
+  display: flex;
+  justify-content: flex;
+  flex-direction: column;
+
+  // &__card {
+  //   background-color: #f5f5f5;
+  //   border-radius: .3rem;
+  //   padding: 3rem;
+
+  //   &-icon {
+  //     @include image("images/add.svg");
+  //   }
+  // }
+
+  &__name {
+    font-size: 2rem;
+    color: $red;
+  }
+
+  &__users {
+    display: flex;
+  }
+}

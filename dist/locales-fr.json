@@ -1,0 +1,12 @@
+{
+	"global.appTitle": "Boilerplate",
+	"authentication.errors.passwordOrLoginInvalid": "Email ou mot de passe invalide.",
+	"authentication.errors.patterns.email": "Le format de l'email est incorrect.",
+	"authentication.errors.patterns.weakPassword": "Le mot de passe n'est pas assez sécurisé.",
+	"authentication.email": "Email : ",
+	"authentication.password": "Mot de passe : ",
+	"authentication.connect": "Se connecter",
+	"authentication.createAccount": "Créer mon compte",
+	"authentication.notSubscribedYet": "Pas encore inscrit ? Créé un compte !",
+	"dashboard.title": "Dashboard"
+}

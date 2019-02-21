@@ -1,0 +1,12 @@
+@import 'sass/_constants.scss';
+
+.user-card {
+  display: flex;
+  background: $red;
+  padding: 1rem;
+  border-radius: .3rem .3rem 0;
+  color: white;
+  justify-content: space-between;
+  flex: 1;
+  margin: 0 .5rem;
+}
