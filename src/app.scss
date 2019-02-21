@@ -1,0 +1,32 @@
+html {
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  font-size: 10px;
+}
+
+body {
+  -webkit-overflow-scrolling: touch;
+  margin: 0;
+  padding: 0;
+  position: absolute; // Mandatory disable ios overoll
+  width: 100%; // Mandatory disable ios overoll
+  height: 100%; // Mandatory disable ios overoll
+  background-color: white;
+  font-family: 'Titillium Web', sans-serif;
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.app {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 25rem;
+  padding: 2rem;
+  box-shadow: 0 0 10px grey;
+}

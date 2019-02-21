@@ -1,0 +1,17 @@
+.input {
+  padding: 1rem;
+  width: 100%;
+  border: solid 2px rgb(54, 54, 186);
+  border-radius: .3rem;
+  outline: none;
+  font-family: inherit;
+  font-size: 1.2rem;
+
+  &:focus {
+    border-color: darken(rgb(54, 54, 186), 10%);
+  }
+
+  &::placeholder {
+    text-transform: capitalize;
+  }
+}

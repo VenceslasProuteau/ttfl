@@ -1,0 +1,73 @@
+@import 'sass/constants.scss';
+
+.login {
+  display: flex;
+  height: 100%;
+  background: white;
+  @include mobile {
+    flex-direction: column;
+  }
+
+  &__form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    min-width: 25rem;
+
+    input {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:not(:first-child){
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  &__actions {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__switch {
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    text-decoration: underline;
+  }
+
+  &__column {
+    flex: 1 1 100%;
+    position: relative;
+    &:first-child {
+      background: black;
+      @include mobile {
+        flex: 1 0 auto;
+      }
+    }
+
+    input {
+      box-shadow: 0 0 0 30px white inset !important;
+      &:hover, &:focus, &:active {
+        box-shadow: 0 0 0 30px white inset !important;
+      }
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 5rem;
+    width: 15rem;
+    // 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}

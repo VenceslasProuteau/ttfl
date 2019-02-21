@@ -1,0 +1,16 @@
+{
+  "authentication": {
+    "errors": {
+      "passwordOrLoginInvalid": "Email ou mot de passe invalide.",
+      "patterns": {
+        "email": "Le format de l'email est incorrect.",
+        "weakPassword": "Le mot de passe n'est pas assez sécurisé."
+      }
+    },
+    "email": "Email : ",
+    "password": "Mot de passe : ",
+    "connect": "Se connecter",
+    "createAccount": "Créer mon compte",
+    "notSubscribedYet": "Pas encore inscrit ? Créé un compte !"
+  }
+}
