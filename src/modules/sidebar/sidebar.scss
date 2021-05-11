@@ -2,9 +2,31 @@
 @import 'sass/_mixins.scss';
 
 .sidebar {
+  position: relative;
+  z-index: 1;
   border-right: solid 2px $grey;
   @include mobile {
-    width: 6rem;
+    width: 0;
+    overflow: hidden;
+  }
+
+  &--toggled {
+    width: 25rem;
+  }
+
+  &__close-menu {
+    @include desktop {
+      display: none;
+    }
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 3rem;
+    height: 3rem;
+    background-image: url('../../assets/icons/menu-toggle.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
   }
 
   position: fixed;
@@ -13,6 +35,23 @@
   width: 25rem;
   background-color: #fff;
   margin: 0;
+
+  &__toggle-menu {
+    display: none;
+    @include mobile {
+      display: block;
+      position: fixed;
+      left: 2rem;
+      top: 2rem;
+      width: 3rem;
+      height: 3rem;
+      z-index: 1;
+      background-image: url('../../assets/icons/menu-toggle.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+  }
 
   &__user-name {
     font-size: 3rem;
@@ -23,12 +62,10 @@
 
   &__user {
     &-card {
-      @include mobile {
-        display: none;
-      }
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       border-bottom: solid 1px $grey;
       margin: 2rem;
       padding-bottom: 2rem;

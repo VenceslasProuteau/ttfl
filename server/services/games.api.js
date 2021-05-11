@@ -1,53 +1,23 @@
 const callApi = require('./api');
 const Game = require('../models/game.model');
-const {
-  format,
-  eachDayOfInterval,
-} = require('date-fns');
+const { getTeamDetails } = require('./teams.api');
 
-const URL_PREFIX = '/games/';
-
-const getGameById = (gameId) =>
-  callApi({
-    url: `${URL_PREFIX}gameId/${gameId}`,
-  }).then(({
-    api: {
-      games = [],
-    } = {}
-  } = {}) => games
-    .filter(({ seasonYear }) => parseInt(seasonYear, 10) > 0)
-    .map(game => new Game(game)));
+const URL_PREFIX = '/scores/json/';
 
 const getGamesByDate = (date) =>
   callApi({
-    url: `${URL_PREFIX}date/${date}`,
-  }).then(({
-    api: {
-      games = [],
-    } = {}
-  } = {}) => ({
-    date: format(new Date(date), 'MMMM dd'),
-    games: games
-      .filter(({ seasonYear }) => parseInt(seasonYear, 10) > 0)
-      .map(game => new Game(game))
-  }));
+    url: `${URL_PREFIX}GamesByDate/${date}`,
+  }).then((games = []) => {
+    const promises = games.map((game) => {
+      const promise = [getTeamDetails(game.HomeTeamID), getTeamDetails(game.AwayTeamID)];
+      return Promise.all(promise)
+        .then(([homeTeam, awayTeam]) => new Game({game, homeTeam, awayTeam}));
+    });
 
-const getRangeGames = (startDate, endDate) => {
-  const promises = eachDayOfInterval({
-    start: new Date(startDate),
-    end: new Date(endDate),
-  }).map(date => getGamesByDate(format(date, 'yyyy-MM-dd')));
-  
-  return Promise.all(promises)
-    .then(data => {
-      console.log('then', data);
-      return data;
-    })
-    .catch(e => console.log('e', e));
-}
+    return Promise.all(promises)
+      .then((games) => games);
+  });
 
 module.exports = {
-  getGameById,
   getGamesByDate,
-  getRangeGames,
 };

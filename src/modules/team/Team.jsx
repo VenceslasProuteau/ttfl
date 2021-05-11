@@ -33,9 +33,16 @@ export class Team extends React.Component {
   render() {
     return this.state.isLoading
       ? <div>Loading ...</div>
-      : <div className="team">
-          <div className="team__name">{this.state.team.name}</div>
-          <div className="team__users">
+      : <div className="page">
+          <div className="page__header">
+            <div className="page__header-col">
+              Equipe
+            </div>
+            <div className="page__header-col">
+              {this.state.team.name}
+            </div>
+          </div>
+          <div className="page__content team">
             {this.state.team.users.map((user, index) => 
               <UserCard key={index} user={user} />
             )}

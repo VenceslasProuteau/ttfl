@@ -1,4 +1,5 @@
 @import 'sass/_colors.scss';
+@import 'sass/_mixins.scss';
 
 html {
   top: 0;
@@ -24,9 +25,13 @@ body {
 }
 
 .app {
+  @include mobile {
+    left: 0;
+  }
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   left: 25rem;
+  background: #f5f5f5;
 }

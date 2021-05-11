@@ -12,8 +12,10 @@ export default class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-          <Sidebar />
-          <div className="app">
+        <div className="app__menu-toggle"></div>
+        <Sidebar />
+        <div className="app">
+          <div className="layout-container">
             {Object.values(APP_STATES).map((route, i) =>
               <Route 
                 key={i}
@@ -25,6 +27,7 @@ export default class App extends React.Component {
               />
             )}
           </div>
+        </div>
       </React.Fragment>
     )
   }

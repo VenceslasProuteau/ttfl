@@ -1,12 +1,12 @@
 import { callApi } from 'commons/api/api.service';
 
-const getSchedule = (date) => {
+const getPlayers = (teamId) => {
   return callApi({
-    url: `/schedule/${date}`,
+    url: `/players/${teamId}`,
   }).then(data => data)
     .catch(e => e);
 };
 
 export {
-  getSchedule,
+  getPlayers,
 };

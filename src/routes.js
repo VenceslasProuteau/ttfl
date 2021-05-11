@@ -1,23 +1,14 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import { Dashboard } from './modules/dashboard/Dashboard';
 import { Team } from './modules/team/Team';
 import { Decks } from './modules/decks/Decks';
-import { render } from 'enzyme';
+import { DECK_ROUTES } from './modules/decks/route';
+import { MainTemplate } from './modules/decks/main-template';
 
-class EntryRedirection extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-    return this.props.history.replace(APP_STATES.DASHBOARD.path);
-  }
-
-  render() {
-    return <div></div>
-  }
-}
+const EntryRedirection = ({ history }) => {
+  history.replace(APP_STATES.DASHBOARD.path);
+  return null;
+};
 
 const APP_STATES = {
   HOME: {
@@ -30,11 +21,11 @@ const APP_STATES = {
     component: Dashboard,
   },
   DECKS: {
-    path: '/my-decks/:startDate',
-    component: withRouter(Decks),
+    path: '/decks',
+    component: MainTemplate
   },
   TEAM: {
-    path: '/my-team',
+    path: '/team',
     component: Team,
   }
 }

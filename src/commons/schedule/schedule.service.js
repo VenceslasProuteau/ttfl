@@ -20,13 +20,6 @@ const ScheduleServiceMethod = () => {
               return schedule;
             });
     },
-    getRangedSchedule(startDate, endDate) {
-      return getRangedSchedule(startDate, endDate)
-        .then(data => {
-          console.log('data', data);
-          return data;
-        });
-    },
   }
 };
 

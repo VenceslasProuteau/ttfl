@@ -3,10 +3,13 @@ const nbaRouter = express.Router();
 
 const {
   getSchedule,
-  getRangedSchedule,
 } = require('../controllers/schedule');
 
+const {
+  getPlayers
+} = require('../controllers/players');
+
 nbaRouter.route('/schedule/:date').get(getSchedule);
-nbaRouter.route('/schedule/range/:startDate/:endDate').get(getRangedSchedule)
+nbaRouter.route('/players/:teamId').get(getPlayers);
 
 module.exports = nbaRouter;
